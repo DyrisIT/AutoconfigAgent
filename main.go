@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/DyrisIT/AutoconfigAgent/cli"
@@ -16,5 +17,6 @@ func main() {
 	http.HandleFunc("/.well-known/mobileconfig", handler.Mobileconfig)
 
 	var addr = viper.GetString("bind") + ":" + viper.GetString("port")
+	log.Printf("Starting API on %s", addr)
 	http.ListenAndServe(addr, nil)
 }
