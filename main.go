@@ -11,8 +11,8 @@ import (
 func main() {
 	cli.Setup()
 
-	http.HandleFunc("/mail/config-v1.1.xml", handler.ThunderbirdAutoconfig)
-	http.HandleFunc("/autodiscover/autodiscover.xml", handler.OutlookAutodiscover)
+	http.HandleFunc("/mail/config-v1.1.xml", handler.Autoconfig)
+	http.HandleFunc("/autodiscover/autodiscover.xml", handler.Autodiscover)
 
 	var addr = viper.GetString("bind") + ":" + viper.GetString("port")
 	http.ListenAndServe(addr, nil)

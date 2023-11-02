@@ -5,7 +5,13 @@ import (
 	"net/http"
 )
 
-func OutlookAutodiscover(w http.ResponseWriter, r *http.Request) {
+// For Outlook
+func Autodiscover(w http.ResponseWriter, r *http.Request) {
+	email := r.URL.Query().Get("emailaddress")
+	if email == "" {
+		email = "user@example.com" // default email
+	}
+
 	xml := `<?xml version="1.0" encoding="utf-8"?>
 <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006">
     <Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
@@ -35,11 +41,6 @@ func OutlookAutodiscover(w http.ResponseWriter, r *http.Request) {
         </Account>
     </Response>
 </Autodiscover>`
-
-	email := r.URL.Query().Get("emailaddress")
-	if email == "" {
-		email = "user@example.com" // default email
-	}
 
 	w.Header().Set("Content-Type", "application/xml")
 	fmt.Fprintf(w, xml, email, email)
