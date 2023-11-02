@@ -7,9 +7,10 @@ import (
 
 // For iOS
 func Mobileconfig(w http.ResponseWriter, r *http.Request) {
-	email := r.URL.Query().Get("emailaddress")
-	if email == "" {
-		email = "user@example.com" // default email
+	email, err := validateEmail(r.URL.Query().Get("emailaddress"))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 
 	plist := `<?xml version="1.0" encoding="UTF-8"?>
