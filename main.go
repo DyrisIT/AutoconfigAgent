@@ -13,6 +13,7 @@ func main() {
 
 	http.HandleFunc("/mail/config-v1.1.xml", handler.Autoconfig)
 	http.HandleFunc("/autodiscover/autodiscover.xml", handler.Autodiscover)
+	http.HandleFunc("/.well-known/mobileconfig", handler.Mobileconfig)
 
 	var addr = viper.GetString("bind") + ":" + viper.GetString("port")
 	http.ListenAndServe(addr, nil)
