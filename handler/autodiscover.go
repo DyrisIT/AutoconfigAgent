@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+// Spec: https://github.com/gronke/email-autodiscover/blob/master/mail/autodiscover.xml
+
 // For Outlook
 func Autodiscover(w http.ResponseWriter, r *http.Request) {
 	email, domain, err := validateEmail(r.URL.Query().Get("emailaddress"))

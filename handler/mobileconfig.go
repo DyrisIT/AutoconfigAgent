@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+// Spec: https://developer.apple.com/business/documentation/Configuration-Profile-Reference.pdf
+
 // For iOS
 func Mobileconfig(w http.ResponseWriter, r *http.Request) {
 	email, domain, err := validateEmail(r.URL.Query().Get("emailaddress"))

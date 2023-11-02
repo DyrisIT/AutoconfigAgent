@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+// Spec: https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
+
 // For Thunderbird
 func Autoconfig(w http.ResponseWriter, r *http.Request) {
 	email, domain, err := validateEmail(r.URL.Query().Get("emailaddress"))
