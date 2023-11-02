@@ -7,7 +7,7 @@ import (
 
 // For Outlook
 func Autodiscover(w http.ResponseWriter, r *http.Request) {
-	email, err := validateEmail(r.URL.Query().Get("emailaddress"))
+	email, domain, err := validateEmail(r.URL.Query().Get("emailaddress"))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
