@@ -14,7 +14,7 @@ import (
 func Autodiscover(w http.ResponseWriter, r *http.Request) {
 	email, domain, err := validateEmail(r.URL.Query().Get("emailaddress"))
 	if err != nil {
-		log.Printf("Request Error: %s", r.URL)
+		log.Printf("Request Error: %s", r.RequestURI)
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
