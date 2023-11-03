@@ -9,6 +9,8 @@ import (
 	"github.com/spf13/viper"
 )
 
+// TODO: extend autoconfigs with caldav/carddav (baikal or radical server)
+
 func main() {
 	cli.Setup()
 
