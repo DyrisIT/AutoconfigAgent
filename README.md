@@ -112,5 +112,8 @@ server {
 }
 ```
 
+## TODO:
+- [ ] Add support for CalDAV/CardDAV autoconfig (Radical or Baikal Server required)
+
 ## Contribution
 Feel free to create a pull request with your improvements.
