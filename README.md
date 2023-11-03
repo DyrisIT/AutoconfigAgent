@@ -1,6 +1,9 @@
 # AutoconfigAgent
 Simple API, parsing an email address into autoconfig XML files for Thunderbird, Outlook and iOS Mail
 
+## Notes
+This requires Postfix & Dovecot SNI if used on a single server with multiple different email domains, since the server hostname for imap and smtp will be different and encryption should always be used.
+
 ## Usage
 ```bash
 ./AutoconfigAgent -b 0.0.0.0 -p 1234
@@ -114,6 +117,7 @@ server {
 
 ## TODO:
 - [ ] Add support for CalDAV/CardDAV autoconfig (Radical or Baikal Server required)
+- [ ] Research into more autoconfig methods (e.g. K-9 Mail uses SRV Records, so no XML API is necessary)
 
 ## Contribution
 Feel free to create a pull request with your improvements.
