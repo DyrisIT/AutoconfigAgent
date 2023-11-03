@@ -1,9 +1,6 @@
 package cli
 
 var config = map[string]string{
-	// E-Mail Provider Settings
-	"PROVIDER_NAME": "KiloHost",
-
 	// SMTP
 	"IMAP_SUBDOMAIN": "imap",               // imap or pop3
 	"IMAP_PORT":      "993",                // 993: IMAP 995: POP3

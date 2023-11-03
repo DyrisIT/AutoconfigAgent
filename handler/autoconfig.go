@@ -41,7 +41,7 @@ func Autoconfig(w http.ResponseWriter, r *http.Request) {
         </outgoingServer>
     </emailProvider>
 </clientConfig>`,
-		domain, domain, cli.Get("PROVIDER_NAME"), cli.Get("PROVIDER_NAME"),
+		domain, domain, domain, domain,
 		cli.Get("IMAP_SUBDOMAIN")+"."+domain, cli.Get("IMAP_PORT"), cli.Get("IMAP_SECURITY"), email, cli.Get("IMAP_AUTH"),
 		cli.Get("SMTP_SUBDOMAIN")+"."+domain, cli.Get("SMTP_PORT"), cli.Get("SMTP_SECURITY"), email, cli.Get("SMTP_AUTH"),
 	)
